@@ -486,8 +486,12 @@ session_start();
   document.body.style.backgroundColor = '#d9d9d9';
 
   // Preload all images just to be sure.
-  var allImages = blueFaces.concat(
-    orangeFaces, gunFls, nogunFls,
+  var gunPreloads = <?php echo json_encode(glob('../Resources/GrayGuns/*.png')); ?>;
+  var nogunPreloads = <?php echo json_encode(glob('../Resources/GrayNonguns/*.png')); ?>;
+  var bluePreloads = <?php echo json_encode(glob('../Resources/BLUE/*.png')); ?>;
+  var orangePreloads = <?php echo json_encode(glob('../Resources/ORANGE/*.png')); ?>;
+  var allImages = orangePreloads.concat(
+    bluePreloads, gunPreloads, nogunPreloads,
     [mask, redX, check, tooSlow]
   );
 
@@ -500,7 +504,7 @@ session_start();
     	}
     });
   };
-  
+
   jsPsych.pluginAPI.preloadImages(allImages, startExperiment);
 
 
