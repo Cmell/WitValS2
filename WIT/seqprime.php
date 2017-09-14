@@ -485,14 +485,25 @@ session_start();
   // try to set the background-color
   document.body.style.backgroundColor = '#d9d9d9';
 
-  jsPsych.init({
-  	timeline: timeline,
-    fullscreen: false,
-  	on_finish: function() {
-      window.location = "../ctrl.php";
-  		;
-  	}
-  });
+  // Preload all images just to be sure.
+  var allImages = blueFaces.concat(
+    orangeFaces, gunFls, nogunFls,
+    [mask, redX, check, tooSlow]
+  );
+
+  var startExperiment = function () {
+    jsPsych.init({
+    	timeline: timeline,
+      fullscreen: false,
+    	on_finish: function() {
+        window.location = "../ctrl.php";
+    	}
+    });
+  };
+  
+  jsPsych.pluginAPI.preloadImages(allImages, startExperiment);
+
+
 
 </script>
 </html>
