@@ -8,6 +8,8 @@ session_start();
 <html>
 <head>
   <title>Experiment</title>
+  <meta http-equiv="cache-control" content="public | private">
+  <meta http-equiv="content-type" content="text/html" charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.min.js"></script>
 	<script src="../Resources/jspsych-5.0.3/jspsych.js"></script>
@@ -30,6 +32,8 @@ session_start();
   var timeline = [];
   var numTrials = 320;
   var timing_parameters = [200, 200, 200, 500];
+  var primeSize = [240, 336];
+  var targetSize = [380, 380];
 
   // The timing_parameters should correspond to the planned set of stimuli.
   // In this case, I'm leading with a mask (following Ito et al.), and then
@@ -490,24 +494,33 @@ session_start();
   var nogunPreloads = <?php echo json_encode(glob('../Resources/GrayNonguns/*.png')); ?>;
   var bluePreloads = <?php echo json_encode(glob('../Resources/BLUE/*.png')); ?>;
   var orangePreloads = <?php echo json_encode(glob('../Resources/ORANGE/*.png')); ?>;
-  var allImages = orangePreloads.concat(
-    bluePreloads, gunPreloads, nogunPreloads,
-    [mask, redX, check, tooSlow]
-  );
+  var allPrimes = bluePreloads.concat(orangePreloads);
+  var allTargets = gunPreloads.concat(nogunPreloads);
+
+  // Preload all stimuli
+  var imgNamesSizes = [];
+  for (var i = 0; i < allPrimes.length; i++) {
+    imgNamesSizes[i] = [allPrimes[i], primeSize];
+  }
+  var tempLength = imgNamesSizes.length;
+  for (var i = 0; i < allTargets.length; i++) {
+    imgNamesSizes[i + tempLength] = [allTargets[i], targetSize];
+  }
+  imgNamesSizes = imgNamesSizes.concat([ //imgNamesArr = imgNamesArr.concat([
+    ['./TooSlow.png', [201, 380]],
+    ['./XwithSpacebarMsg.png', [285, 380]],
+    ['./MaskReal.png', targetSize],
+    ['./FixationCross380x380.png', targetSize]
+  ]);
+  window.allWITImages = preloadResizedImages(imgNamesSizes);
 
   var startExperiment = function () {
     jsPsych.init({
     	timeline: timeline,
-      fullscreen: false,
-    	on_finish: function() {
-        window.location = "../ctrl.php";
-    	}
+      fullscreen: true
     });
   };
-
-  jsPsych.pluginAPI.preloadImages(allImages, startExperiment);
-
-
+  startExperiment();
 
 </script>
 </html>
