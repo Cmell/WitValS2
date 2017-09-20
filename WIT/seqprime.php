@@ -479,12 +479,18 @@ session_start();
     curTarget = fullPrimeTargetSet[i].object === "GUN" ? 0 : 1;
     numTrialTypes[curPrime][curTarget]++;
   }
+
+  var thankyouTrial = {
+    type: "text",
+    text: 'Thank you! Please let the experimenter know you are finished.',
+    cont_key: [32]
+  };
   // Push everything to the big timeline in order
   timeline.push(instructStim);
   timeline.push(countdown);
   timeline.push(taskTrials);
   //timeline.push(saveCall);
-  //timeline.push(thankyouTrial);
+  timeline.push(thankyouTrial);
 
   // try to set the background-color
   document.body.style.backgroundColor = '#d9d9d9';
