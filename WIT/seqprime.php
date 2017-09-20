@@ -16,7 +16,7 @@ session_start();
   <script src="../Resources/jspsych-5.0.3/plugins/jspsych-sequential-priming.js"></script>
   <script src="../Resources/jspsych-5.0.3/plugins/jspsych-text.js"></script>
   <script src="../Resources/jspsych-5.0.3/plugins/jspsych-call-function.js"></script>
-  <script src="https://rawgit.com/Cmell/JavascriptUtils/master/Util.js"></script>
+  <script src="https://cdn.rawgit.com/Cmell/JavascriptUtilsV9-20-2017/master/Util.js"></script>
   <script src='../Resources/ModS3JSUtil.js'></script>
 	<link href="../Resources/jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 </head>
