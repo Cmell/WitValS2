@@ -34,6 +34,7 @@ session_start();
   var timing_parameters = [200, 200, 200, 500];
   var primeSize = [240, 336];
   var targetSize = [380, 380];
+  var minorityProp = .25; var majorityProp = 1 - minorityProp;
 
   // The timing_parameters should correspond to the planned set of stimuli.
   // In this case, I'm leading with a mask (following Ito et al.), and then
@@ -289,7 +290,6 @@ session_start();
   majorityObj = minorityObj == 'GUN' ? 'NOGUN' : 'GUN';
 
   // parameters
-  minorityProp = .25; majorityProp = 1 - minorityProp;
   minFaceDrawNum = Math.round(names.length * minorityProp);
   majFaceDrawNum = names.length - minFaceDrawNum;
 
