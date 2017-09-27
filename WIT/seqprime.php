@@ -487,7 +487,7 @@ session_start();
   };
   var thankyouTrial = {
     type: "text",
-    text: 'Thank you! Please let the experimenter know you are finished.',
+    text: 'Thank you! Now we just have a few questions. Please press the spacebar to continue.',
     cont_key: [32]
   };
   // Push everything to the big timeline in order
