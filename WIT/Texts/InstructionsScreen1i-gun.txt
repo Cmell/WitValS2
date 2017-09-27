@@ -1,8 +1,12 @@
+<br></br>
 <p>
 In this task, you will see two images on each trial. The first image will be a face, and the second image will be an object. The face is not important, but only signals that the object is about to appear. When the object appears, it is your job to identify it as a GUN or as a NON-GUN. If the object is a GUN, press the "i" key. If the object is a NON-GUN, press the "e" key.
 </p>
 <p>
 If you get the answer wrong or take too long, you will have to press the spacebar to continue. But if you get the answer right, you will automatically start the next trial. This might feel fast at first, but keep paying attention! It will get easier.
+</p>
+<p>
+Remember, you will be asked to estimate the frequency of the face colors and the objects after you are finished with the task. Try to pay attention to how many of each stimulus appear.
 </p>
 <p>
 Please identify guns by pressing "i" and non-guns by pressing "e" as quickly and accurately as you can!
