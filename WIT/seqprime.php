@@ -480,12 +480,18 @@ session_start();
     numTrialTypes[curPrime][curTarget]++;
   }
 
+  var pidTrial = {
+    type: "text",
+    text: 'PID: ' + pid,
+    cont_key: [32]
+  };
   var thankyouTrial = {
     type: "text",
     text: 'Thank you! Please let the experimenter know you are finished.',
     cont_key: [32]
   };
   // Push everything to the big timeline in order
+  timeline.push(pidTrial);
   timeline.push(instructStim);
   timeline.push(countdown);
   timeline.push(taskTrials);
